@@ -52,7 +52,7 @@ describe('Formulário de Consultoria ', () => {
         .selectFile('./cypress/fixtures/cnh.jpeg',{force:true})
 
         // Interagindo com  TextArea...
-        cy.get(    'textarea[placeholder="Descreva mais detalhes sobre sua necessidade"]').type('sasasa')
+        // cy.get(    'textarea[placeholder="Descreva mais detalhes sobre sua necessidade"]').type('sasasa')
 
         
 

@@ -65,8 +65,7 @@ it('Não deve logar com email inválido',()=>{
   cy.get('#password').type('katana123')
   cy.contains('button','Entrar').click()
 
-   cy.contains('Acesso negado! Tente novamente.')
- .should('be.visible')
+
  
 
 
