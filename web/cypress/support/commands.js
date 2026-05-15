@@ -39,3 +39,12 @@ Cypress.Commands.add('start', () => {
     cy.visit('http://localhost:3000')
 })
 
+Cypress.Commands.add('goTo',(btnName,pgTitle)=>{
+       cy.contains('button',btnName)
+        .should('be.visible')
+        .click()
+        cy.contains('h1',pgTitle).should('be.visible')
+
+
+
+})
