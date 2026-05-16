@@ -49,38 +49,95 @@ describe('Formulário de Consultoria ', () => {
 
         // Interagindo com  elemento que faz upload de arquivo
         cy.get('input[type="file"]')
-        .selectFile('./cypress/fixtures/cnh.jpeg',{force:true})
+            .selectFile('./cypress/fixtures/cnh.jpeg', { force: true })
 
         // Interagindo com  TextArea...
-        // cy.get(    'textarea[placeholder="Descreva mais detalhes sobre sua necessidade"]').type('sasasa')
+        cy.get('textarea[placeholder="Descreva mais detalhes sobre sua necessidade"]').type('sasasa')
 
+        // =>Interagindo com o campo Tecnologias.
+
+        const techs = ['Cypress', 'JS']
+        techs.forEach((tech) => {
+            cy.get('input[placeholder="Digite uma tecnologia e pressione Enter"]')
+                .type(tech)
+                .type('{enter}')//simulou o pressionamento da tecla enter.
+
+            cy.contains('label', 'Tecnologias')
+                .parent()
+            cy.contains('span', tech)
+                .should('be.visible')
+
+                //Submissão do Formulário
+                cy.contains('label','termos de uso').should('be.visible')
+                .parent()
+                .find('input')
+                .check()
+
+                 cy.contains('button','Enviar formulário')
+                   .click({ force: true })
+
+
+                // cy.contains('Sua solicitação de consultoria foi enviada com sucesso! Em breve, nossa equipe entrará em contato através do email fornecido.')
+                // .should('be.visible')
+                
+                
+                
+                
+
+        })
         
+    })
+    //VERIFICAÇÃO DOS CAMPOS OBRIGATÓRIOS
+    it.only('VERIFICAÇÃO dos campos OBRIGATÓRIOS',()=>{
+              cy.start()
+        cy.submitLogin('papito@webdojo.com', 'katana123')
+        /*  cy.contains('h4','Formulários')sem id o TEXTO é a melhor maneira para cheagr no elemento. .parent() vai para o elemento PAI do elemento h4... .parent().parent()*/
+        cy.goTo('Formulários', 'Consultoria')
+
+              cy.contains('button','Enviar formulário')
+                   .click({ force: true })
+                cy.contains('p','Digite nome e sobrenome').should('be.visible')
+                cy.contains('p','Informe um email válido').should('be.visible')
+                cy.contains('p','Você precisa aceitar os termos de uso').should('be.visible')
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                
 
 
 
     })
+    
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
