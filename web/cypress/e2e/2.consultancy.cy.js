@@ -1,5 +1,5 @@
 describe('Formulário de Consultoria ', () => {
-    it('Deve solicitar consultoria individual', () => {
+    it.only('Deve solicitar consultoria individual', () => {
         cy.start()
         cy.submitLogin('papito@webdojo.com', 'katana123')
         /*  cy.contains('h4','Formulários')sem id o TEXTO é a melhor maneira para cheagr no elemento. .parent() vai para o elemento PAI do elemento h4... .parent().parent()*/
@@ -56,16 +56,18 @@ describe('Formulário de Consultoria ', () => {
 
         // =>Interagindo com o campo Tecnologias.
 
-        const techs = ['Cypress', 'JS']
+        const techs = ['Cypress','html','js','css']
         techs.forEach((tech) => {
             cy.get('input[placeholder="Digite uma tecnologia e pressione Enter"]')
                 .type(tech)
                 .type('{enter}')//simulou o pressionamento da tecla enter.
+                
 
             cy.contains('label', 'Tecnologias')
                 .parent()
             cy.contains('span', tech)
                 .should('be.visible')
+                })
 
                 //Submissão do Formulário
                 cy.contains('label','termos de uso').should('be.visible')
@@ -74,40 +76,58 @@ describe('Formulário de Consultoria ', () => {
                 .check()
 
                  cy.contains('button','Enviar formulário')
-                   .click({ force: true })
+                   .click()
+                
+                cy.get('.modal',{timeout:8000}).should('be.visible')
+                .find('.modal-content').should('be.visible')
+                .and('have.text','Sua solicitação de consultoria foi enviada com sucesso! Em breve, nossa equipe entrará em contato através do email fornecido.').should('be.visible')
+
+            })
 
 
-                // cy.contains('Sua solicitação de consultoria foi enviada com sucesso! Em breve, nossa equipe entrará em contato através do email fornecido.')
-                // .should('be.visible')
-                
-                
-                
-                
-
-        })
+            //VERIFICAÇÃO DOS CAMPOS OBRIGATÓRIOS
+            it('VERIFICAÇÃO dos campos OBRIGATÓRIOS',()=>{
+                      cy.start()
+                cy.submitLogin('papito@webdojo.com', 'katana123')
+                /*  cy.contains('h4','Formulários')sem id o TEXTO é a melhor maneira para cheagr no elemento. .parent() vai para o elemento PAI do elemento h4... .parent().parent()*/
+                cy.goTo('Formulários', 'Consultoria')
         
-    })
-    //VERIFICAÇÃO DOS CAMPOS OBRIGATÓRIOS
-    it.only('VERIFICAÇÃO dos campos OBRIGATÓRIOS',()=>{
-              cy.start()
-        cy.submitLogin('papito@webdojo.com', 'katana123')
-        /*  cy.contains('h4','Formulários')sem id o TEXTO é a melhor maneira para cheagr no elemento. .parent() vai para o elemento PAI do elemento h4... .parent().parent()*/
-        cy.goTo('Formulários', 'Consultoria')
+                      cy.contains('button','Enviar formulário')
+                           .click()
+        
+                           cy.contains('label','Nome Completo *')
+                           .parent()
+                           .find('p').should('be.visible')
+                           
+                           cy.contains('label','Email *')
+                           .parent()
+                           .find('p').should('be.visible')
+        
+                      
+                        cy.contains('span','Li e aceito os')
+                        .parent()
+                        .parent()
+                        .find('p')
+                        .should('be.visible')
+        
+        
+        
+                        
+        
+        
+        
+            })
+            
+        })
 
-              cy.contains('button','Enviar formulário')
-                   .click({ force: true })
-                cy.contains('p','Digite nome e sobrenome').should('be.visible')
-                cy.contains('p','Informe um email válido').should('be.visible')
-                cy.contains('p','Você precisa aceitar os termos de uso').should('be.visible')
 
 
+        
+                
                 
 
-
-
-    })
-    
-})
+        
+        
 
 
 
