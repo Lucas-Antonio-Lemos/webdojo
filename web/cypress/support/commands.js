@@ -48,5 +48,11 @@ Cypress.Commands.add('goTo',(btnName,pgTitle)=>{
         cy.contains('h1',pgTitle).should('be.visible')
 
 
+    })
+
+Cypress.Commands.add('login',()=>{
+       cy.start()
+        cy.submitLogin('papito@webdojo.com', 'katana123')
 
 })
+

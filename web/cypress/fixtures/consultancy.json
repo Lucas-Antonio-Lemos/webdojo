@@ -1,0 +1,28 @@
+{
+  "personal": {
+    "name": "Lucas Antonio",
+    "email": "lucas@email.com",
+    "phone": "51 3232 3232",
+    "consultancyType": "Individual",
+    "personType": "cpf",
+    "document": "000 000 000 00",
+    "channels": ["Instagram", "LinkedIn", "YouTube", "Udemy", "Indicação de Amigo"],
+    "file": "./cypress/fixtures/cnh.jpeg",
+    "description": "sasasa",
+    "techs": ["Cypress", "html", "js", "css"],
+    "terms": true
+  },
+  "company": {
+    "name": "Lucas Antonio",
+    "email": "lucas@email.com",
+    "phone": "51 3232 3232",
+    "consultancyType": "In Company",
+    "personType": "cnpj",
+    "document": "28.221.097/0001-81",
+    "channels": ["Instagram", "LinkedIn", "YouTube", "Udemy", "Indicação de Amigo"],
+    "file": "./cypress/fixtures/cnh.jpeg",
+    "description": "sasasa",
+    "techs": ["Cypress", "html", "js", "css"],
+    "terms": true
+  }
+}

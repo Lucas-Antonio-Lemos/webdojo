@@ -1,0 +1,6 @@
+1° para colocar a api webdojo no ar = npm run dev
+2° para colocar a interface do cypres = npx cypress open 
+3° para fazer testes de regrassão por linha de comando = npx cypress run
+4° para fazer apresentação de forma assitida =  npx cypress run --headed
+5° regressão por linha de comando ' headless' usando browser diferentes= npx cypress run --browser=edge
+

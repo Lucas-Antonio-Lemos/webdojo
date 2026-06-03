@@ -1,6 +1,6 @@
 describe('Login', () => {
 
-    it.only('Deve realizar login com sucesso', () => {
+    it('Deve realizar login com sucesso', () => {
         cy.start() //Encapsulado em commands.js
         cy.submitLogin('papito@webdojo.com', 'katana123')//Encapsulado em commands.js ...  //button[text()="Entrar"] = Xpath para encontrar o botão Entrar ...
      
