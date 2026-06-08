@@ -25,6 +25,7 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 import 'cypress-real-events'
+import './actions/consultancyActions'
 
 Cypress.Commands.add('submitLogin', (email, senha) => {
 
@@ -50,7 +51,7 @@ Cypress.Commands.add('goTo',(btnName,pgTitle)=>{
 
     })
 
-Cypress.Commands.add('login',()=>{
+Cypress.Commands.add('login',()=>{ //HELPER...
        cy.start()
         cy.submitLogin('papito@webdojo.com', 'katana123')
 

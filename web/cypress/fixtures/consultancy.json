@@ -8,7 +8,7 @@
     "document": "000 000 000 00",
     "channels": ["Instagram", "LinkedIn", "YouTube", "Udemy", "Indicação de Amigo"],
     "file": "./cypress/fixtures/cnh.jpeg",
-    "description": "sasasa",
+    "description": "Testando TextArea",
     "techs": ["Cypress", "html", "js", "css"],
     "terms": true
   },
@@ -21,8 +21,9 @@
     "document": "28.221.097/0001-81",
     "channels": ["Instagram", "LinkedIn", "YouTube", "Udemy", "Indicação de Amigo"],
     "file": "./cypress/fixtures/cnh.jpeg",
-    "description": "sasasa",
+    "description": "Testando TextArea",
     "techs": ["Cypress", "html", "js", "css"],
     "terms": true
+
   }
 }
