@@ -241,7 +241,7 @@ const data=consultancy.company
 
 
 
-      it.only('Deve solicitar consultoria Individual :IMPORTANDO GLOBALMENTE E USANDO DESTRUTURAÇÃO',  ()=> {
+      it('Deve solicitar consultoria Individual :IMPORTANDO GLOBALMENTE E USANDO DESTRUTURAÇÃO',  ()=> {
     
 
         //  => Interagindo com o campo de texto. 
@@ -348,3 +348,6 @@ const data=consultancy.company
  
 
 })
+
+
+

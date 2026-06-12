@@ -112,7 +112,7 @@ describe('Formulário de Consultoria ', () => {
 
 
     //IN COMPANY
-    it.only('Deve solicitar consultoria In Company', () => {
+    it('Deve solicitar consultoria In Company', () => {
 
 
         const consultancyForm = consultancyData.company //  foi importado globalmente não precisa usar fixture
